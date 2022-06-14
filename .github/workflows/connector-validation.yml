@@ -23,11 +23,14 @@ jobs:
         id: changed-files
         uses: tj-actions/changed-files@v22.2
         with:
-          path: '${GITHUB_WORKSPACE}/connectors/'
-
+          files: |           
+            connectors/**      
       - name: Connectors validation
         run: |
-          cd ${GITHUB_WORKSPACE}/scripts/
-          ids=${{ steps.changed-files.outputs.all_changed_files }};id="${ids[@]}";
-          go run . ${GITHUB_WORKSPACE} connector.schema.json ${id// /" "}
-          cd ${GITHUB_WORKSPACE}      
+          ids=${{ steps.changed-files.outputs.all_changed_files }};
+          if (( ${#a[@]} )); then
+            cd ${{ github.workspace }}/scripts/
+            id="${ids[@]}";
+            go run . ${{ github.workspace }} connector.schema.json ${id// /" "}
+            cd ${{ github.workspace }}
+          fi     
