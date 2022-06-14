@@ -1,7 +1,6 @@
 {
   "name": "Test connector 1",
   "version": "0.0.3",
-  "description": "super 4",
   "author": "VZ-1",
   "provider": {
       "name": "Commerce",
