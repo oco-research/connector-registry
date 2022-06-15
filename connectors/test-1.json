@@ -1,6 +1,7 @@
 {
     "name": "Test connector 1",
     "version": "0.0.33333",
+    "description": "super 333",
     "author": "VZqqq",
     "provider": {
         "name": "Commerce",
